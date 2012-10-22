@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-twitter="http://www.springframework.org/schema/integration/twitter"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:int-jmx="http://www.springframework.org/schema/integration/jmx"
+       xmlns:int-groovy="http://www.springframework.org/schema/integration/groovy"
+       xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/jmx http://www.springframework.org/schema/integration/jmx/spring-integration-jmx.xsd
+		http://www.springframework.org/schema/integration/groovy http://www.springframework.org/schema/integration/groovy/spring-integration-groovy.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration/twitter http://www.springframework.org/schema/integration/twitter/spring-integration-twitter.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+<!--
+    <int:channel id="scanUserChannel">
+        <int:queue capacity="10000"/>
+    </int:channel>
+    <int:chain>
+        <int:header-enricher>
+            &lt;!&ndash;Only add depth if not there&ndash;&gt;
+            <int:header name="depth" value="2"/>
+            <int:header name="userId" expression="payload"/>
+        </int:header-enricher>
+        <int:service-activator ref="graphQueryService" method="scanFriends"/>
+        <int:splitter/>
+        &lt;!&ndash;TODO: How turn all next steps into multi-threaded? &ndash;&gt;
+        &lt;!&ndash;TODO: Will this overwrite existing one?  If not, how do it?&ndash;&gt;
+        <int:header-enricher>
+            <int:header name="depth" expression="headers.depth - 1"/>
+        </int:header-enricher>
+        &lt;!&ndash;splitter wants to pass on to a subscriber router - one to persist and one to check depth of original message.
+            If depth > 0, then pass through to scanUserChannel again with decremented depth&ndash;&gt;
+        <int:service-activator ref="graphQueryService" method="userJsonPersister"/>
+        &lt;!&ndash;TODO: requeue if depth > 0&ndash;&gt;
+        &lt;!&ndash;TODO: add friend relation.  Turn payload into map of 2 items, pulling from userId header and payload.&ndash;&gt;
+    </int:chain>
+-->
+
+
+</beans>
